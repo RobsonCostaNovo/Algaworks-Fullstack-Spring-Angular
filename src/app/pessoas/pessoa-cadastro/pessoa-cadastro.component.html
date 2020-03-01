@@ -1,0 +1,106 @@
+<div class="container">
+
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="adicionar(f)">
+
+    <div class="p-grid">
+
+        <div class="p-col-12">
+          <h1>Nova Pessoa</h1>
+        </div>
+
+        <div class="p-col-12 p-md-8 ui-fluid">
+          <label class="display-block">Nome</label>
+          <input pInputText type="text" name="nome" class="p-col-12"
+            [(ngModel)]="pessoa.nome"
+            #nome="ngModel" required minlength="5">
+
+          <app-message [control]="nome" error="required"
+            text="Informe o nome"></app-message>
+          <app-message [control]="nome" error="minlength"
+            text="Mínimo de {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
+        </div>
+
+        <div class="p-col-12 p-md-8 ui-fluid">
+          <label class="display-block">Logradouro</label>
+          <input pInputText type="text" name="logradouro" class="p-col-12"
+            [(ngModel)]="pessoa.endereco.logradouro"
+            #logradouro="ngModel" required>
+
+          <app-message [control]="logradouro" error="required"
+            text="Informe o logradouro"></app-message>
+        </div>
+
+        <div class="p-col-12 p-md-2 ui-fluid" >
+          <label class="display-block">Número</label>
+          <input pInputText type="text" name="numero" class="p-col-12"
+            [(ngModel)]="pessoa.endereco.numero"
+            #numero="ngModel" required>
+
+          <app-message [control]="numero" error="required"
+            text="Informe o número"></app-message>
+        </div>
+
+        <div class="p-col-12 p-md-4 ui-fluid">
+          <label class="display-block">Complemento</label>
+          <input pInputText type="text" name="complemento" class="p-col-12"
+          [(ngModel)]="pessoa.endereco.complemento">
+        </div>
+
+        <div class="p-col-12 p-md-4 ui-fluid">
+          <label class="display-block">Bairro</label>
+          <input pInputText type="text" name="bairro" class="p-col-12"
+            [(ngModel)]="pessoa.endereco.bairro"
+            #bairro="ngModel" required>
+
+          <app-message [control]="bairro" error="required"
+            text="Informe o bairro"></app-message>
+        </div>
+
+        <div class="p-col-12 p-md-4 ui-fluid">
+          <label>CEP</label>
+          <p-inputMask name="cep" mask="99.999-999"
+            [(ngModel)]="pessoa.endereco.cep"
+            #cep="ngModel" required></p-inputMask>
+
+          <app-message [control]="cep" error="required"
+            text="Informe o CEP"></app-message>
+        </div>
+
+        <div class="p-col-12 p-md-6 ui-fluid">
+          <label class="display-block">Cidade</label>
+          <input pInputText type="text" name="cidade" class="p-col-12"
+            [(ngModel)]="pessoa.endereco.cidade"
+            #cidade="ngModel" required>
+
+            <app-message [control]="cidade" error="required"
+            text="Informe a cidade"></app-message>
+        </div>
+
+        <div class="p-col-12 p-md-6 ui-fluid">
+          <label class="display-block">Estado</label>
+          <input pInputText type="text" name="estado" class="p-col-12"
+            [(ngModel)]="pessoa.endereco.estado"
+            #estado="ngModel" required>
+
+            <app-message [control]="estado" error="required"
+            text="Informe o estado"></app-message>
+        </div>
+
+        <div class="ui-g-12">
+          <p-panel header="Contatos">
+            <app-pessoa-cadastro-contato [contatos]="pessoa.contatos"></app-pessoa-cadastro-contato>
+          </p-panel>
+        </div>
+
+        <div class="p-col-12">
+          <button pButton type="submit" label="Salvar" class="botoes ui-button-info" [disabled]="f.invalid"></button>
+          <button pButton type="button" label="Novo" class="botoes ui-button-info"
+            (click)="nova(f)"></button>
+
+          <a href="/pessoas">Voltar para a pesquisa</a>
+
+        </div>
+      </div>
+    </form>
+  </div>
+

@@ -1,0 +1,12 @@
+.botoes {
+  margin: 0 10px 0 0 !important;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+.display-block {
+  display: block;
+}

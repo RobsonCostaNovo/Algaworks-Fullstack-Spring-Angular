@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  color: #404C51;
+}
+
+label {
+  font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.margem-top-10 {
+  margin-top: 10px;
+}
+
+.col-valor-header {
+  width: 120px;
+}
+.col-valor-content {
+  text-align: right;
+}
+
+.col-data-header {
+  width: 120px;
+}
+
+.col-data-content {
+  text-align: center;
+}
+
+.col-botao-acao-header {
+  width: 100px;
+}
+
+.col-botao-acao-content {
+  width: 100px;
+}
+
+.botao-acao-table {
+  margin-left: 4px !important;
+}
+
+.ui-dropdown-filter-container {
+  width: 100%;
+}
